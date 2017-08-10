@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--在ie上正常，在firefox上不正常-->
+    <meta charset="UTF-8">
+    <title>画布</title>
+    <style type="text/css">
+        body
+        {
+            font-size:200%;
+
+        }
+    </style>
+
+    <script type="text/javascript">
+        function cnvs_getCoordinates(e)
+        {
+            var x=e.clientX;
+            var y=e.clientY;
+            document.getElementById("xycoordinates").innerHTML="Coordinates: (" + x + "," + y + ")";
+        }
+
+        function cnvs_clearCoordinates()
+        {
+            document.getElementById("xycoordinates").innerHTML="把鼠标悬停在方块中可以看到坐标";
+        }
+    </script>
+</head>
+<body style="margin:0px; " >
+<div id="coordiv" style="float:left;width:400px;height:300px;border:1px solid #c3c3c3 ;clear:both"
+     onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()">
+    <canvas id="myCanvas" width="400" height="300" style="border:0px solid #c3c3c3;clear:both">
+        Your browser does not support the canvas element.
+    </canvas>
+</div>
+<!--这里有一个问题就是，onmouseout的事件不能完全符合
+鼠标在div外面时就调用cnvs_clearCoordinates()方法的效果-->
+<div id="xycoordinates" style="clear:both">把鼠标悬停在方块中可以看到坐标</div>
+<canvas id="myCanvas2" width="400" height="300" style="clear:both; border:1px solid #c3c3c3; margin-top:0px">
+    Your browser does not support the canvas element.
+</canvas>
+
+<script type="text/javascript">
+
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+
+    var my_gradient=ctx.createLinearGradient(0,0,400,300);
+    my_gradient.addColorStop(0,"gray");
+    my_gradient.addColorStop(1,"white");
+    ctx.fillStyle=my_gradient;
+    ctx.fillRect(0,0,400,300);
+
+    ctx.fillStyle="#FF0000";
+    ctx.beginPath();
+    ctx.arc(200,100,20,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.moveTo(10,10);
+    ctx.lineTo(353,215);
+    ctx.lineTo(10,215);
+    ctx.stroke();
+
+    var c=document.getElementById("myCanvas2");
+    var cxt=c.getContext("2d");
+    var img=new Image();
+    img.src="../imgs/02.jpg";
+    cxt.drawImage(img,0,0);
+</script>
+</body>
+</html>

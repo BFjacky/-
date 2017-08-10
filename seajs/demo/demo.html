@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        html,
+        body,
+        div,
+        p {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #header {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: aquamarine;
+            height: 100px;
+        }
+
+        #article {
+            width: 700px;
+            background-color: pink;
+            height: 700px;
+            float: left;
+        }
+
+        #right1 {
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+            float: right;
+        }
+
+        #right2 {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+            float: right;
+        }
+
+        #right3 {
+            width: 300px;
+            height: 100px;
+            background-color: gray;
+            float: right;
+        }
+
+        #footer {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: yellow;
+            height: 100px;
+            float: right;
+        }
+        #tab p{
+            display:none;
+        }
+        #drag{
+            width:200px;
+            height:200px;
+            background-color: orange;
+            position:absolute;
+
+        }
+        #locate{
+            background-color:#dddddd;
+            height:50px;
+
+        }
+    </style>
+    <script src="./sea.js"></script>
+    <script>
+        seajs.use('./main.js', function (main) {
+
+        });
+    </script>
+</head>
+
+<body style="width:1000px; margin-left:460px;margin-right:460px;">
+    <div id="header">
+
+    </div>
+
+    <div id="article">
+        <div id="drag">
+
+        </div>
+    </div>
+
+    <div id="right1">
+        <input type="text" value="12">
+        <select>
+            <option value="1">加</option>
+            <option value="2">减</option>
+            <option value="3">乘</option>
+            <option value="4">除</option>
+        </select>
+        <input type="text" value="11">
+        <input type="button" value="计算"> </button>
+        <div style="background-color:yellow"></div>
+    </div>
+    <div id="right2">
+        <div id="tab">
+            <input type="button" value="1">
+            <input type="button" value="2">
+            <input type="button" value="3">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+        </div>
+    </div>
+
+    <div id="right3">
+        <div id="locate">
+            asd
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</body>
+
+</html>
